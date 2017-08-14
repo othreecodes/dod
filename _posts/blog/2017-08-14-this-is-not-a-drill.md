@@ -2,7 +2,7 @@
 layout: post
 title: This is not a Drill
 excerpt: "After spending half my time trying to set this up, here it is. "
-categories: articles
+categories: blog
 tags: [first-post, code, type-script, Ionic]
 comments: true
 share: true
