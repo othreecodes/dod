@@ -1,7 +1,7 @@
 ---
 layout: post
 title: This is not a Drill
-excerpt: "This marks the begining of a new Dev writer(sorta). After spending half my time trying to set this up, here it is."
+excerpt: "After spending half my time trying to set this up, here it is. "
 categories: articles
 tags: [first-post, code, type-script, Ionic]
 comments: true
