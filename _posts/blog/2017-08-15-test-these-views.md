@@ -13,8 +13,8 @@ Soo...
 Where I work, (As a Back-end Developer (Soon to be Full stack)), We've been working on changing the site architecture from 
 a monolith (hope i spelt that right...im too lazy to google it) to a Microservice-y architecture.
 
-Basically these means that we'll be breaking down the site into services that communicate to eachother via APIs.(Its mainly [Django](http://djangoproject.com) bdw)
-Now I'm working on this service, pulling trying to replace the functionality thats in the current code base in my own microservice.
+Basically, these means that we'll be breaking down the site into services that communicate with eachother via APIs.(Its mainly [Django](http://djangoproject.com) bdw)
+Now I'm working on this service, trying to replace the functionality thats in the current code base in my own microservice.
 Before today, this was my REST view using [Django rest framework (DRF)](http://djangorestframework)
 
 *NB: If you haven't heard of Django before, the rest of these stuff will be to you what PHP is to me*
@@ -47,11 +47,11 @@ Straight forward yh? Its all good. Then I'll hook 'em up to the urls like this
 ```
 
 This works... but little did I know that there was a simpler way to do this using [DRF](http://djangorestframework)
-Introducing....[router](http://www.django-rest-framework.org/api-guide/routers/) and [viewsets](http://www.django-rest-framework.org/api-guide/viewsets/)...
+Introducing....[Router](http://www.django-rest-framework.org/api-guide/routers/) and [Viewsets](http://www.django-rest-framework.org/api-guide/viewsets/)...
 
 A `ViewSet` class is simply a type of class-based View, that does not provide any method handlers such as `.get()` or `.post()`, and instead provides actions such as `.list()` and `.create().`
 
-A router is just a quick and consistent way of wiring your view logic to a set of URLs.
+A Router is just a quick and consistent way of wiring your view logic to a set of URLs.
 
 ```python
 
@@ -100,15 +100,15 @@ class ModelViewSet(mixins.CreateModelMixin,
 
 ```
 
-> Just Imagine the possibilities read the [docs](http://www.django-rest-framework.org/api-guide/viewsets/) you'll love it too
-A lotta stuff that i woulda done manually has already been done by the ModelViewSet class. Including [browsable API shit](http://www.django-rest-framework.org/topics/browsable-api/)
+> Just Imagine the possibilities. Read the [docs](http://www.django-rest-framework.org/api-guide/viewsets/) you'll love it too.
+A lotta stuff that i woulda done manually has already been done by the ModelViewSet class. Including [Browsable API Ish](http://www.django-rest-framework.org/topics/browsable-api/)
 
 [![Browsable API]({{site.url}}/images/browsableapi.png)]({{site.url}}/images/browsableapi.png "Browsable API")
 
 
 # Now to the testing.....
 Damn... The funniest thing about unit tests in django is that the name of the test function must start with `test`
-unless the test wouldn't run e.g 
+if not the test wouldn't run e.g 
 
 ```python
 
@@ -119,7 +119,7 @@ class BaseTestCase(TestCase):
 
 ```
 
-This stupid thing kept me up one night. Bdw I use `django-test-plus` for testing, cool library you should check it out.
+This stupid thing kept me up one night. Bdw I use [`django-test-plus`](https://github.com/revsys/django-test-plus) for testing, cool library, you should check it out.
 It provides a lot of method that the default django test doesn't.
 
 So apparently, I learnt from the CTO (cool guy) today that your test for the views should also test the actual expected result, so here's a sample of one
@@ -142,11 +142,10 @@ def test_quiz_questions_are_fecthed_for_quiz(self):
 
 I couldn't be more explicit ;)
 
-I usually first test for a `200 response` before i test the data... Im just used to It. 
+I usually first test for a `200 response` before I test the data... Im just used to It. 
 The `self.client.get` comes from `django-test-plus`
 
-Finally, theres also this cool library `django-extensions` check it on github, I've been using it for a while, but didnt know about the management commands
-including
+Finally, there's also this cool library [`django-extensions`](https://github.com/django-extensions/django-extensions) check it on github, I've been using it for a while, but didnt know about the management commands including:
 
 ```bash
 $ python manage.py shell_plus
@@ -217,4 +216,4 @@ Really cool stuff...
 
 Now I'm off to more debugging.
 
-PS: check out this [Wakatime extension](https://wakatime.com) tracks the amount of time you spend coding on your text editor.
+PS: check out this [Wakatime extension](https://wakatime.com). It tracks the amount of time you spend coding on your text editor.
