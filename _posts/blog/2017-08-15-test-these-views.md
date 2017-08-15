@@ -103,7 +103,7 @@ class ModelViewSet(mixins.CreateModelMixin,
 > Just Imagine the possibilities read the [docs](http://www.django-rest-framework.org/api-guide/viewsets/) you'll love it too
 A lotta stuff that i woulda done manually has already been done by the ModelViewSet class. Including [browsable API shit](http://www.django-rest-framework.org/topics/browsable-api/)
 
-[![Browsable API](/images/browsableapi.png)](https://youtu.be/vXpWvU9HKZs?t=3 "E don do me")
+[![Browsable API]({{site.url}}/images/browsableapi.png)]({{site.url}}/images/browsableapi.png "Browsable API")
 
 
 # Now to the testing.....
