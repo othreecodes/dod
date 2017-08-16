@@ -6,7 +6,7 @@ categories: blog
 tags: [first-day, code, django, unit tests, python, REST]
 comments: true
 share: true
-modified: 2017-08-15T22:01:34.637579
+modified: 2017-08-16T08:12:37.926359
 ---
 
 Soo...
