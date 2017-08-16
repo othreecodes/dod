@@ -216,4 +216,4 @@ Really cool stuff...
 
 Now I'm off to more debugging.
 
-PS: check out this [Wakatime extension](xx  ). It tracks the amount of time you spend coding on your text editor.
+PS: check out this [Wakatime extension](https://wakatime.com/). It tracks the amount of time you spend coding on your text editor.
