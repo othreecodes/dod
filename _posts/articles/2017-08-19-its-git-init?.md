@@ -104,10 +104,7 @@ The git status command displays the state of the working directory and the stagi
 open your fav' text editor and while in your repository directory and type some stuff into it  
 
 ```
-GNU nano 2.8.6                       File: readme.md
-
 This is a the read me file
-
 ```
 
 Now were going to add this file to our repository using the `git add` command but first let's check the status of our repository again 
