@@ -100,12 +100,15 @@ The git status command displays the state of the working directory and the stagi
 - References to parent commit objects.
 - An SHA1 name, a 40-character string that uniquely identifies the commit object. The name is composed of a hash of relevant aspects of the commit, so identical commits will always have the same name.
 
-### Now Lets create a new file called readme.md
+### Now Lets create a new file called "readme.md"
 open your fav' text editor and while in your repository directory and type some stuff into it  
 
 ```
 This is a the read me file
 ```
+>`/home/dod/project/readme.md` 
+
+[![Browsable API]({{site.url}}/images/fileloc.png)]({{site.url}}/images/fileloc.png "Current Folder Structure")
 
 Now were going to add this file to our repository using the `git add` command but first let's check the status of our repository again 
 ```bash 
