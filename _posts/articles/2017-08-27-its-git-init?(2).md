@@ -38,4 +38,37 @@ As you initially make commits, you're given a master branch that points to the l
 
 <img src="http://static.tvtropes.org/pmwiki/pub/images/snoopy_laughing_at_his_joke.jpg">
 
-The master is the trunk, of which you can branch off from. You start a new branch off of the original master so that you can make changes to the project without affecting the original master branch
+The master is the trunk, of which you can branch off from. You start a new branch off of the original master so that you can make changes to the project without affecting the original master branch.
+
+To create a new branch you run the command with the name `develop` we run the command
+
+```bash
+dod@othree:~/project$ git branch testing
+```
+It doesn't give any output, but if we run `git branch --list` we see the names of branches we have and the branch we are currently working on
+
+```bash
+dod@othree:~/project$ git branch --list
+* master
+  testing
+```
+
+## `git branch`
+If --list is given, or if there are no non-option arguments, existing branches are listed; the current branch will be highlighted with an asterisk.
+
+`git branch <name>` Creates a new branch with the specified name. 
+This creates a new pointer to the same commit you’re currently on.
+
+<img src="https://git-scm.com/book/en/v2/images/two-branches.png">
+
+To switch to this new created branch we use the `git checkout` command
+```bash
+dod@othree:~/project$ git checkout testing
+Switched to branch 'testing'
+dod@othree:~/project$ git status
+On branch testing
+nothing to commit, working tree clean
+```
+Now we have successfully switched to the `testing` branch 
+
+## `git checkout`
