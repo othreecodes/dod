@@ -108,7 +108,7 @@ This is a the read me file
 ```
 >`/home/dod/project/readme.md` 
 
-[![Browsable API]({{site.url}}/images/fileloc.png)]({{site.url}}/images/fileloc.png "Current Folder Structure")
+[![Current Folder]({{site.url}}/images/fileloc.png)]({{site.url}}/images/fileloc.png "Current Folder Structure")
 
 Now were going to add this file to our repository using the `git add` command but first let's check the status of our repository again 
 ```bash 

@@ -6,7 +6,7 @@ categories: articles
 tags: [git, version-control, development, gitlab, github, branching]
 comments: true
 share: true
-# modified: 2017-08-26 19:24:54.454961
+modified: 2017-09-07 19:24:54.454961
 ---
 
 Soo...
@@ -72,3 +72,151 @@ nothing to commit, working tree clean
 Now we have successfully switched to the `testing` branch 
 
 ## `git checkout`
+Once you checkout to a particular branch, the `HEAD` points to that branch.
+Then you can begin to work on that verision (branch) of your repository.
+> There's a lot more that `git checkout` does, we'll be going over them subsequently
+
+Now lets make a few more commits shall we ?
+
+<img src="https://i.imgflip.com/1vgpwy.jpg" title="GIT IS EASY?"/>
+
+So now on our `testing`, Let's edit our readme.md and also add more files to our repository.
+> HINT: Use `git add .` to stage all files before committing them 
+
+```bash
+dod@othree:~/project$ git add .
+dod@othree:~/project$ git commit -am "added badys files"
+[master b1b6e4] added bady files
+ 2 files changed, 3 insertions(+)
+ create mode 100644 Maximbady.txt
+ create mode 100644 chakalaka.txt
+dod@othree:~/project$ git log
+commit b1b6e40ab12734fd5995e1884239b16aa6655e3d (HEAD -> testing)
+Author: Obi Uchenna David <daviduchenna@outlook.com>
+Date:   Thu Sep 7 20:01:40 2017 +0100
+
+    added badys files
+
+commit e4f55bf96a99585e0d6c24f0c1b166f84ec649a0 (master)
+Author: Obi Uchenna David <daviduchenna@outlook.com>
+Date:   Sat Aug 26 18:55:42 2017 +0100
+
+    initial commit
+```
+
+From the terminal output, we can infer that,
+1. The `HEAD` is currently at testing i.e we are on the testing branch 
+2. Our Commit(s) from the master branch at the point of "`checking out`" are also on the testing branch
+
+Now lets make one more commit 
+```bash
+dod@othree:~/project$ echo name > me.txt # just creating a random file with `name` in it
+dod@othree:~/project$ git add .
+[testing bbb0978] added my file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 me.txt
+dod@othree:~/project$ git log
+commit bbb097852554222fde426537cd18f5470c1f67ff (HEAD -> testing)
+Author: Obi Uchenna David <daviduchenna@outlook.com>
+Date:   Thu Sep 7 20:05:34 2017 +0100
+
+    added my file
+
+commit b1b6e40ab12734fd5995e1884239b16aa6655e3d
+Author: Obi Uchenna David <daviduchenna@outlook.com>
+Date:   Thu Sep 7 20:01:40 2017 +0100
+
+    added badys files
+
+commit e4f55bf96a99585e0d6c24f0c1b166f84ec649a0 (master)
+Author: Obi Uchenna David <daviduchenna@outlook.com>
+Date:   Sat Aug 26 18:55:42 2017 +0100
+
+    initial commit
+```
+
+After every commit, `HEAD` moves up to that particular commit. So now, let's switch back to master and see what we have.
+
+```bash
+postgres@othree:~/project$ git checkout master
+Switched to branch 'master'
+postgres@othree:~/project$ git log
+commit e4f55bf96a99585e0d6c24f0c1b166f84ec649a0 (HEAD -> master)
+Author: Obi Uchenna David <daviduchenna@outlook.com>
+Date:   Sat Aug 26 18:55:42 2017 +0100
+
+    initial commit
+postgres@othree:~/project$ 
+
+```
+
+All commits from the testing branch aren't brought into master, and our working directory is updated to the state of the master branch. You can say that the testing branch is ahead of the master.
+
+## Now that we are able to switch/move through branches, how do we move through commits?
+It's easy, fist let us get back into out testing branch (git checkout testing).
+Git log shows this
+```bash
+dod@othree:~/project$ git log
+commit bbb097852554222fde426537cd18f5470c1f67ff (HEAD -> testing)
+Author: Obi Uchenna David <daviduchenna@outlook.com>
+Date:   Thu Sep 7 20:05:34 2017 +0100
+
+    added my file
+
+commit b1b6e40ab12734fd5995e1884239b16aa6655e3d
+Author: Obi Uchenna David <daviduchenna@outlook.com>
+Date:   Thu Sep 7 20:01:40 2017 +0100
+
+    added badys files
+
+commit e4f55bf96a99585e0d6c24f0c1b166f84ec649a0 (master)
+Author: Obi Uchenna David <daviduchenna@outlook.com>
+Date:   Sat Aug 26 18:55:42 2017 +0100
+
+    initial commit
+```
+
+To "switch" through commits we use the `git checkout <commit-name>` command
+> The commit name  is An SHA1 name, a 40-character string that uniquely identifies the commit object. In layman terms, That long rubbish that's created with every commit.
+
+```bash
+dod@othree:~/project$ git checkout b1b6e40ab12734fd5995e1884239b16aa6655e3d
+Note: checking out 'b1b6e40ab12734fd5995e1884239b16aa6655e3d'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at b1b6e40... added badys files
+```
+
+> HINT: Run git status and git log. You'll get some info on what's going on
+
+# detached HEAD
+In a nutshell, detached HEAD state occurs when you try to checkout something that is not a local branch. It can be a commit, a tag or a remote branch.
+When you make changes and commit them, these changes do not belong to any branch but that doesn’t mean the commits are deleted if you eventually switch to another branch.
+
+As displayed in the command line interface, you have to check out a new branch to retain any changes and commits made like so
+
+```bash
+dod@othree:~/project$ git checkout -b temp_branch_name
+```
+
+Now you can make and save changes at this state.
+
+We'll go through `merging` these changes in the next tutorial.
+Let me know if I missed anything in the comments section.
+
+# TL;DR
+- A branch is a version of your repository
+- `git branch <name>` Creates a new branch with the specified name.
+- `git checkout [branch|commit]` helps us to switch through branches and commits
+- detached HEAD state occurs when you try to checkout something that is not a local branch. It can be a commit, a tag or a remote branch.
+- I'm Awesome ...😎⁠⁠⁠⁠
+
+
