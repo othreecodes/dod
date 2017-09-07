@@ -40,7 +40,7 @@ As you initially make commits, you're given a master branch that points to the l
 
 The master is the trunk, of which you can branch off from. You start a new branch off of the original master so that you can make changes to the project without affecting the original master branch.
 
-To create a new branch you run the command with the name `develop` we run the command
+To create a new branch you run the command with the name `testing` we run the command
 
 ```bash
 dod@othree:~/project$ git branch testing
